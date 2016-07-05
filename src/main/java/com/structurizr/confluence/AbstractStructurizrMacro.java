@@ -8,12 +8,10 @@ public abstract class AbstractStructurizrMacro implements Macro {
         return String.format("structurizrEmbedIframe_%d_%s", workspaceId, diagramKey);
     }
 
-    @Override
     public Macro.BodyType getBodyType() {
         return Macro.BodyType.NONE;
     }
 
-    @Override
     public OutputType getOutputType() {
         return OutputType.BLOCK;
     }

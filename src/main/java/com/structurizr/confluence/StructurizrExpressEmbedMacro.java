@@ -10,7 +10,7 @@ import java.util.Map;
  */
 public class StructurizrExpressEmbedMacro extends AbstractStructurizrMacro {
 
-    private static int COUNT = 1;
+    static int COUNT = 1;
 
     private static final String TEMPLATE =
             "<form id='%s' target='%s' method='post' action='https://structurizr.com/embed/express' style='display: none;'>\n" +
@@ -28,13 +28,16 @@ public class StructurizrExpressEmbedMacro extends AbstractStructurizrMacro {
             "\n" +
             "<script type='text/javascript' src='https://structurizr.com/static/js/structurizr-responsive-embed.js'></script>";
     
-    @Override
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
         String formId = "structurizrEmbedForm_Express_" + COUNT;
         String iFrameId = "structurizrEmbedIframe_Express" + COUNT;
         COUNT++;
 
         String expressKey = parameters.get("expressKey");
+        if (expressKey == null || expressKey.trim().length() == 0) {
+            throw new MacroExecutionException("An Express key must be specified.");
+        }
+
         String src = parameters.getOrDefault("src", "");
 
         return String.format(TEMPLATE, formId, iFrameId, expressKey, bodyContent, iFrameId, src, iFrameId, iFrameId, formId);

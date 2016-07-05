@@ -14,7 +14,7 @@
                  key="structurizr-public-embed">
         <category name="external-content" />
         <parameters>
-            <parameter name="workspaceId" type="string">
+            <parameter name="workspaceId" type="string" required="true">
                 <option key="showNameInPlaceholder" value="true" />
                 <option key="showValueInPlaceholder" value="true" />
             </parameter>
@@ -36,11 +36,11 @@
                  key="structurizr-private-embed">
         <category name="external-content" />
         <parameters>
-            <parameter name="workspaceId" type="string">
+            <parameter name="workspaceId" type="string" required="true">
                 <option key="showNameInPlaceholder" value="true" />
                 <option key="showValueInPlaceholder" value="true" />
             </parameter>
-            <parameter name="apiKey" type="string">
+            <parameter name="apiKey" type="string" required="true">
                 <option key="showNameInPlaceholder" value="false" />
                 <option key="showValueInPlaceholder" value="false" />
             </parameter>
@@ -62,7 +62,7 @@
                  key="structurizr-express-embed">
         <category name="external-content" />
         <parameters>
-            <parameter name="expressKey" type="string">
+            <parameter name="expressKey" type="string" required="true">
                 <option key="showNameInPlaceholder" value="false" />
                 <option key="showValueInPlaceholder" value="false" />
             </parameter>

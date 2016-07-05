@@ -1,7 +1,6 @@
 package com.structurizr.confluence;
 
 import com.atlassian.confluence.content.render.xhtml.ConversionContext;
-import com.atlassian.confluence.macro.Macro;
 import com.atlassian.confluence.macro.MacroExecutionException;
 
 import java.util.Map;
@@ -16,7 +15,6 @@ public class StructurizrPublicEmbedMacro extends AbstractStructurizrMacro {
             "\n" +
             "<script type='text/javascript' src='https://structurizr.com/static/js/structurizr-responsive-embed.js'></script>";
 
-    @Override
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
         try {
             String workspaceIdAsString = parameters.get("workspaceId");

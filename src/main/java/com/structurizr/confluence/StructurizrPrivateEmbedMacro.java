@@ -26,11 +26,19 @@ public class StructurizrPrivateEmbedMacro extends AbstractStructurizrMacro {
             "\n" +
             "<script type='text/javascript' src='https://structurizr.com/static/js/structurizr-responsive-embed.js'></script>";
 
-    @Override
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
         try {
-            long workspaceId = Long.parseLong(parameters.get("workspaceId"));
+            String workspaceIdAsString = parameters.get("workspaceId");
+            if (workspaceIdAsString == null || workspaceIdAsString.trim().length() == 0) {
+                throw new MacroExecutionException("A workspace ID must be specified.");
+            }
+            long workspaceId = Long.parseLong(workspaceIdAsString);
+
             String apiKey = parameters.get("apiKey");
+            if (apiKey == null || apiKey.trim().length() == 0) {
+                throw new MacroExecutionException("An API key must be specified.");
+            }
+
             String diagramKey = parameters.getOrDefault("diagramKey", "1");
             String diagramSelector = parameters.getOrDefault("diagramSelector", "false");
 
@@ -39,7 +47,7 @@ public class StructurizrPrivateEmbedMacro extends AbstractStructurizrMacro {
 
             return String.format(TEMPLATE, formId, iframeId, workspaceId, apiKey, diagramKey, diagramSelector, iframeId, iframeId, iframeId, formId);
         } catch (NumberFormatException e) {
-            throw new MacroExecutionException("Workspace ID must be a number.");
+            throw new MacroExecutionException("The workspace ID must be a number.");
         }
     }
 
