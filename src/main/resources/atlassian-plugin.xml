@@ -1,0 +1,91 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">images/pluginIcon.png</param>
+        <param name="plugin-logo">images/pluginLogo.png</param>
+    </plugin-info>
+
+    <xhtml-macro name="structurizr-public-embed"
+                 class="com.structurizr.confluence.StructurizrPublicEmbedMacro"
+                 documentation-url="https://www.structurizr.com/help/confluence"
+                 icon="/download/resources/${project.groupId}.${project.artifactId}/images/structurizr-logo.png"
+                 key="structurizr-public-embed">
+        <category name="external-content" />
+        <parameters>
+            <parameter name="workspaceId" type="string">
+                <option key="showNameInPlaceholder" value="true" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
+            <parameter name="diagramKey" type="string">
+                <option key="showNameInPlaceholder" value="true" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
+            <parameter name="diagramSelector" type="boolean">
+                <option key="showNameInPlaceholder" value="false" />
+                <option key="showValueInPlaceholder" value="false" />
+            </parameter>
+        </parameters>
+    </xhtml-macro>
+
+    <xhtml-macro name="structurizr-private-embed"
+                 class="com.structurizr.confluence.StructurizrPrivateEmbedMacro"
+                 documentation-url="https://www.structurizr.com/help/confluence"
+                 icon="/download/resources/${project.groupId}.${project.artifactId}/images/structurizr-logo.png"
+                 key="structurizr-private-embed">
+        <category name="external-content" />
+        <parameters>
+            <parameter name="workspaceId" type="string">
+                <option key="showNameInPlaceholder" value="true" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
+            <parameter name="apiKey" type="string">
+                <option key="showNameInPlaceholder" value="false" />
+                <option key="showValueInPlaceholder" value="false" />
+            </parameter>
+            <parameter name="diagramKey" type="string">
+                <option key="showNameInPlaceholder" value="true" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
+            <parameter name="diagramSelector" type="boolean">
+                <option key="showNameInPlaceholder" value="false" />
+                <option key="showValueInPlaceholder" value="false" />
+            </parameter>
+        </parameters>
+    </xhtml-macro>
+
+    <xhtml-macro name="structurizr-express-embed"
+                 class="com.structurizr.confluence.StructurizrExpressEmbedMacro"
+                 documentation-url="https://www.structurizr.com/help/confluence"
+                 icon="/download/resources/${project.groupId}.${project.artifactId}/images/structurizr-logo.png"
+                 key="structurizr-express-embed">
+        <category name="external-content" />
+        <parameters>
+            <parameter name="expressKey" type="string">
+                <option key="showNameInPlaceholder" value="false" />
+                <option key="showValueInPlaceholder" value="false" />
+            </parameter>
+            <parameter name="src" type="string">
+                <option key="showNameInPlaceholder" value="true" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
+        </parameters>
+    </xhtml-macro>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="structurizr-confluence"/>
+
+    <resource type="download" name="images/" location="/images"/>
+    
+    <!-- add our web resources -->
+    <web-resource key="structurizr-confluence-resources" name="structurizr-confluence Web Resources">
+        <dependency>com.atlassian.auiplugin:ajs</dependency>
+        
+        <resource type="download" name="structurizr-confluence.css" location="/css/structurizr-confluence.css"/>
+        <resource type="download" name="structurizr-confluence.js" location="/js/structurizr-confluence.js"/>
+
+        <context>structurizr-confluence</context>
+    </web-resource>
+    
+</atlassian-plugin>
