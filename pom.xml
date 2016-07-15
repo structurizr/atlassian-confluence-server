@@ -7,11 +7,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.structurizr.confluence</groupId>
     <artifactId>structurizr-confluence</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <organization>
-        <name>Example Company</name>
-        <url>http://www.example.com/</url>
+        <name>Structurizr Limited</name>
+        <url>https://structurizr.com</url>
     </organization>
 
     <name>structurizr-confluence</name>

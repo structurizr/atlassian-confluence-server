@@ -23,8 +23,15 @@ public class StructurizrPublicEmbedMacro extends AbstractStructurizrMacro {
             }
 
             long workspaceId = Long.parseLong(workspaceIdAsString);
-            String diagramKey = parameters.getOrDefault("diagramKey", "1");
-            String diagramSelector = parameters.getOrDefault("diagramSelector", "false");
+            String diagramKey = "1";
+            if (parameters.containsKey("diagramKey")) {
+                diagramKey = parameters.get("diagramKey");
+            }
+
+            String diagramSelector = "false";
+            if (parameters.containsKey("diagramSelector")) {
+                diagramSelector = parameters.get("diagramSelector");
+            }
 
             String iframeId = createIframeId(workspaceId, diagramKey);
 

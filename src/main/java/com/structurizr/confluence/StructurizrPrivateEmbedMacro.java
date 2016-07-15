@@ -39,8 +39,15 @@ public class StructurizrPrivateEmbedMacro extends AbstractStructurizrMacro {
                 throw new MacroExecutionException("An API key must be specified.");
             }
 
-            String diagramKey = parameters.getOrDefault("diagramKey", "1");
-            String diagramSelector = parameters.getOrDefault("diagramSelector", "false");
+            String diagramKey = "1";
+            if (parameters.containsKey("diagramKey")) {
+                diagramKey = parameters.get("diagramKey");
+            }
+
+            String diagramSelector = "false";
+            if (parameters.containsKey("diagramSelector")) {
+                diagramSelector = parameters.get("diagramSelector");
+            }
 
             String formId = createFormId(workspaceId, diagramKey);
             String iframeId = createIframeId(workspaceId, diagramKey);

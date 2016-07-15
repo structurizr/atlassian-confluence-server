@@ -38,7 +38,10 @@ public class StructurizrExpressEmbedMacro extends AbstractStructurizrMacro {
             throw new MacroExecutionException("An Express key must be specified.");
         }
 
-        String src = parameters.getOrDefault("src", "");
+        String src = "";
+        if (parameters.containsKey("src")) {
+            src = parameters.get("src");
+        }
 
         return String.format(TEMPLATE, formId, iFrameId, expressKey, bodyContent, iFrameId, src, iFrameId, iFrameId, formId);
     }
