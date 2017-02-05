@@ -26,6 +26,10 @@
                 <option key="showNameInPlaceholder" value="false" />
                 <option key="showValueInPlaceholder" value="false" />
             </parameter>
+            <parameter name="maxWidth" type="string" required="false">
+                <option key="showNameInPlaceholder" value="true" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
         </parameters>
     </xhtml-macro>
 
@@ -52,6 +56,10 @@
                 <option key="showNameInPlaceholder" value="false" />
                 <option key="showValueInPlaceholder" value="false" />
             </parameter>
+            <parameter name="maxWidth" type="string" required="false">
+                <option key="showNameInPlaceholder" value="true" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
         </parameters>
     </xhtml-macro>
 
@@ -67,6 +75,10 @@
                 <option key="showValueInPlaceholder" value="false" />
             </parameter>
             <parameter name="src" type="string">
+                <option key="showNameInPlaceholder" value="true" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
+            <parameter name="maxWidth" type="string" required="false">
                 <option key="showNameInPlaceholder" value="true" />
                 <option key="showValueInPlaceholder" value="true" />
             </parameter>

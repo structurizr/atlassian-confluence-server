@@ -18,7 +18,9 @@ public class StructurizrPrivateEmbedMacro extends AbstractStructurizrMacro {
             "<input name='iframe' value='%s' />\n" +
             "</form>\n" +
             "\n" +
+            "<div style='max-width: %s'>\n" +
             "<iframe id='%s' name='%s' width='100%%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
+            "</div>\n" +
             "\n" +
             "<script type='text/javascript'>\n" +
             "    document.getElementById('%s').submit();\n" +
@@ -28,31 +30,20 @@ public class StructurizrPrivateEmbedMacro extends AbstractStructurizrMacro {
 
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
         try {
-            String workspaceIdAsString = parameters.get("workspaceId");
-            if (workspaceIdAsString == null || workspaceIdAsString.trim().length() == 0) {
-                throw new MacroExecutionException("A workspace ID must be specified.");
-            }
-            long workspaceId = Long.parseLong(workspaceIdAsString);
+            long workspaceId = getWorkspaceId(parameters);
+            String diagramKey = getDiagramKey(parameters);
+            String diagramSelector = getDiagramSelector(parameters);
+            String iframeId = createIframeId(workspaceId, diagramKey);
+            String width = getMaxWidth(parameters);
 
             String apiKey = parameters.get("apiKey");
             if (apiKey == null || apiKey.trim().length() == 0) {
                 throw new MacroExecutionException("An API key must be specified.");
             }
 
-            String diagramKey = "1";
-            if (parameters.containsKey("diagramKey")) {
-                diagramKey = parameters.get("diagramKey");
-            }
-
-            String diagramSelector = "false";
-            if (parameters.containsKey("diagramSelector")) {
-                diagramSelector = parameters.get("diagramSelector");
-            }
-
             String formId = createFormId(workspaceId, diagramKey);
-            String iframeId = createIframeId(workspaceId, diagramKey);
 
-            return String.format(TEMPLATE, formId, iframeId, workspaceId, apiKey, diagramKey, diagramSelector, iframeId, iframeId, iframeId, formId);
+            return String.format(TEMPLATE, formId, iframeId, workspaceId, apiKey, diagramKey, diagramSelector, iframeId, width, iframeId, iframeId, formId);
         } catch (NumberFormatException e) {
             throw new MacroExecutionException("The workspace ID must be a number.");
         }

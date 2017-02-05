@@ -11,31 +11,21 @@ import java.util.Map;
 public class StructurizrPublicEmbedMacro extends AbstractStructurizrMacro {
 
     private static final String TEMPLATE =
+            "<div style='max-width: %s'>\n" +
             "<iframe id='%s' src='https://structurizr.com/embed/%d?diagram=%s&diagramSelector=%s&iframe=%s' width='100%%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
+            "</div>\n" +
             "\n" +
             "<script type='text/javascript' src='https://structurizr.com/static/js/structurizr-responsive-embed.js'></script>";
 
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
         try {
-            String workspaceIdAsString = parameters.get("workspaceId");
-            if (workspaceIdAsString == null || workspaceIdAsString.trim().length() == 0) {
-                throw new MacroExecutionException("A workspace ID must be specified.");
-            }
-
-            long workspaceId = Long.parseLong(workspaceIdAsString);
-            String diagramKey = "1";
-            if (parameters.containsKey("diagramKey")) {
-                diagramKey = parameters.get("diagramKey");
-            }
-
-            String diagramSelector = "false";
-            if (parameters.containsKey("diagramSelector")) {
-                diagramSelector = parameters.get("diagramSelector");
-            }
-
+            long workspaceId = getWorkspaceId(parameters);
+            String diagramKey = getDiagramKey(parameters);
+            String diagramSelector = getDiagramSelector(parameters);
             String iframeId = createIframeId(workspaceId, diagramKey);
+            String width = getMaxWidth(parameters);
 
-            return String.format(TEMPLATE, iframeId, workspaceId, diagramKey, diagramSelector, iframeId);
+            return String.format(TEMPLATE, width, iframeId, workspaceId, diagramKey, diagramSelector, iframeId);
         } catch (NumberFormatException e) {
             throw new MacroExecutionException("The workspace ID must be a number.");
         }

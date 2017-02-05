@@ -20,7 +20,9 @@ public class StructurizrExpressEmbedMacro extends AbstractStructurizrMacro {
             "<input name='src' value='%s' />\n" +
             "</form>\n" +
             "\n" +
+            "<div style='max-width: %s'>\n" +
             "<iframe id='%s' name='%s' width='100%%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
+            "</div>\n" +
             "\n" +
             "<script type='text/javascript'>\n" +
             "document.getElementById('%s').submit();\n" +
@@ -43,7 +45,9 @@ public class StructurizrExpressEmbedMacro extends AbstractStructurizrMacro {
             src = parameters.get("src");
         }
 
-        return String.format(TEMPLATE, formId, iFrameId, expressKey, bodyContent, iFrameId, src, iFrameId, iFrameId, formId);
+        String width = getMaxWidth(parameters);
+
+        return String.format(TEMPLATE, formId, iFrameId, expressKey, bodyContent, iFrameId, src, width, iFrameId, iFrameId, formId);
     }
 
     @Override

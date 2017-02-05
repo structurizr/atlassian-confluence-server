@@ -1,6 +1,9 @@
 package com.structurizr.confluence;
 
 import com.atlassian.confluence.macro.Macro;
+import com.atlassian.confluence.macro.MacroExecutionException;
+
+import java.util.Map;
 
 public abstract class AbstractStructurizrMacro implements Macro {
 
@@ -14,6 +17,47 @@ public abstract class AbstractStructurizrMacro implements Macro {
 
     public OutputType getOutputType() {
         return OutputType.BLOCK;
+    }
+
+    protected long getWorkspaceId(Map<String,String> parameters) throws MacroExecutionException {
+        String workspaceId = parameters.get("workspaceId");
+
+        if (workspaceId == null || workspaceId.trim().length() == 0) {
+            throw new MacroExecutionException("A workspace ID must be specified.");
+        } else {
+            return Long.parseLong(workspaceId);
+        }
+    }
+
+    protected String getDiagramKey(Map<String, String> parameters) {
+        String diagramKey = "1";
+        if (parameters.containsKey("diagramKey")) {
+            diagramKey = parameters.get("diagramKey");
+        }
+
+        return diagramKey;
+    }
+
+    protected String getDiagramSelector(Map<String, String> parameters) {
+        String diagramSelector = "false";
+        if (parameters.containsKey("diagramSelector")) {
+            diagramSelector = parameters.get("diagramSelector");
+        }
+
+        return diagramSelector;
+    }
+
+    protected String getMaxWidth(Map<String, String> parameters) throws MacroExecutionException {
+        String width = "100%";
+        if (parameters.containsKey("maxWidth")) {
+            width = parameters.get("maxWidth");
+        }
+
+        if (!width.matches("[0-9]*\\%") && !width.matches("[0-9]*px")) {
+            throw new MacroExecutionException("The max width must be a number of pixels (e.g. 1024px) or a percentage (e.g. 100%).");
+        }
+
+        return width;
     }
 
 }
