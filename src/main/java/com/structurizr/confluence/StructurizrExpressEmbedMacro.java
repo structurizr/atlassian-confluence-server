@@ -13,41 +13,27 @@ public class StructurizrExpressEmbedMacro extends AbstractStructurizrMacro {
     static int COUNT = 1;
 
     private static final String TEMPLATE =
-            "<form id='%s' target='%s' method='post' action='https://structurizr.com/embed/express' style='display: none;'>\n" +
-            "<input name='key' value='%s'/>\n" +
+            "<form id='%s' target='%s' method='post' action='%s/embed/express' style='display: none;'>\n" +
             "<textarea name='definition'>%s</textarea>\n" +
             "<input name='iframe' value='%s' />\n" +
-            "<input name='src' value='%s' />\n" +
             "</form>\n" +
             "\n" +
-            "<div style='max-width: %s'>\n" +
             "<iframe id='%s' name='%s' width='100%%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
-            "</div>\n" +
             "\n" +
             "<script type='text/javascript'>\n" +
             "document.getElementById('%s').submit();\n" +
             "</script>\n" +
             "\n" +
-            "<script type='text/javascript' src='https://structurizr.com/static/js/structurizr-responsive-embed.js'></script>";
+            "<script type='text/javascript' src='%s/static/js/structurizr-responsive-embed.js'></script>";
     
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
         String formId = "structurizrEmbedForm_Express_" + COUNT;
         String iFrameId = "structurizrEmbedIframe_Express" + COUNT;
         COUNT++;
 
-        String expressKey = parameters.get("expressKey");
-        if (expressKey == null || expressKey.trim().length() == 0) {
-            throw new MacroExecutionException("An Express key must be specified.");
-        }
+        String structurizrUrl = getStructurizrUrl(parameters);
 
-        String src = "";
-        if (parameters.containsKey("src")) {
-            src = parameters.get("src");
-        }
-
-        String width = getMaxWidth(parameters);
-
-        return String.format(TEMPLATE, formId, iFrameId, expressKey, bodyContent, iFrameId, src, width, iFrameId, iFrameId, formId);
+        return String.format(TEMPLATE, formId, iFrameId, structurizrUrl, bodyContent, iFrameId, iFrameId, iFrameId, formId, structurizrUrl);
     }
 
     @Override

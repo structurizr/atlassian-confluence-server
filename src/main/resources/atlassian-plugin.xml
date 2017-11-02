@@ -14,6 +14,10 @@
                  key="structurizr-public-embed">
         <category name="external-content" />
         <parameters>
+            <parameter name="structurizrUrl" type="string" required="true" default="https://structurizr.com">
+                <option key="showNameInPlaceholder" value="true" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
             <parameter name="workspaceId" type="string" required="true">
                 <option key="showNameInPlaceholder" value="true" />
                 <option key="showValueInPlaceholder" value="true" />
@@ -26,10 +30,6 @@
                 <option key="showNameInPlaceholder" value="false" />
                 <option key="showValueInPlaceholder" value="false" />
             </parameter>
-            <parameter name="maxWidth" type="string" required="false">
-                <option key="showNameInPlaceholder" value="true" />
-                <option key="showValueInPlaceholder" value="true" />
-            </parameter>
         </parameters>
     </xhtml-macro>
 
@@ -40,6 +40,10 @@
                  key="structurizr-private-embed">
         <category name="external-content" />
         <parameters>
+            <parameter name="structurizrUrl" type="string" required="true" default="https://structurizr.com">
+                <option key="showNameInPlaceholder" value="true" />
+                <option key="showValueInPlaceholder" value="true" />
+            </parameter>
             <parameter name="workspaceId" type="string" required="true">
                 <option key="showNameInPlaceholder" value="true" />
                 <option key="showValueInPlaceholder" value="true" />
@@ -56,10 +60,6 @@
                 <option key="showNameInPlaceholder" value="false" />
                 <option key="showValueInPlaceholder" value="false" />
             </parameter>
-            <parameter name="maxWidth" type="string" required="false">
-                <option key="showNameInPlaceholder" value="true" />
-                <option key="showValueInPlaceholder" value="true" />
-            </parameter>
         </parameters>
     </xhtml-macro>
 
@@ -70,15 +70,7 @@
                  key="structurizr-express-embed">
         <category name="external-content" />
         <parameters>
-            <parameter name="expressKey" type="string" required="true">
-                <option key="showNameInPlaceholder" value="false" />
-                <option key="showValueInPlaceholder" value="false" />
-            </parameter>
-            <parameter name="src" type="string">
-                <option key="showNameInPlaceholder" value="true" />
-                <option key="showValueInPlaceholder" value="true" />
-            </parameter>
-            <parameter name="maxWidth" type="string" required="false">
+            <parameter name="structurizrUrl" type="string" required="true" default="https://structurizr.com">
                 <option key="showNameInPlaceholder" value="true" />
                 <option key="showValueInPlaceholder" value="true" />
             </parameter>

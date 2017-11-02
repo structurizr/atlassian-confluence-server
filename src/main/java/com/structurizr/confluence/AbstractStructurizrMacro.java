@@ -29,6 +29,19 @@ public abstract class AbstractStructurizrMacro implements Macro {
         }
     }
 
+    protected String getStructurizrUrl(Map<String, String> parameters) {
+        String structurizrUrl = "https://structurizr.com";
+        if (parameters.containsKey("structurizrUrl")) {
+            structurizrUrl = parameters.get("structurizrUrl");
+        }
+
+        if (structurizrUrl.endsWith("/")) {
+            structurizrUrl = structurizrUrl.substring(0, structurizrUrl.length()-1);
+        }
+
+        return structurizrUrl;
+    }
+
     protected String getDiagramKey(Map<String, String> parameters) {
         String diagramKey = "1";
         if (parameters.containsKey("diagramKey")) {

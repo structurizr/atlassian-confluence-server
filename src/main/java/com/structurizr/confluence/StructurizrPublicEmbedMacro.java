@@ -11,21 +11,19 @@ import java.util.Map;
 public class StructurizrPublicEmbedMacro extends AbstractStructurizrMacro {
 
     private static final String TEMPLATE =
-            "<div style='max-width: %s'>\n" +
-            "<iframe id='%s' src='https://structurizr.com/embed/%d?diagram=%s&diagramSelector=%s&iframe=%s' width='100%%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
-            "</div>\n" +
+            "<iframe id='%s' src='%s/embed/%d?diagram=%s&diagramSelector=%s&iframe=%s' width='100%%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
             "\n" +
-            "<script type='text/javascript' src='https://structurizr.com/static/js/structurizr-responsive-embed.js'></script>";
+            "<script type='text/javascript' src='%s/static/js/structurizr-responsive-embed.js'></script>";
 
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
         try {
+            String structurizrUrl = getStructurizrUrl(parameters);
             long workspaceId = getWorkspaceId(parameters);
             String diagramKey = getDiagramKey(parameters);
             String diagramSelector = getDiagramSelector(parameters);
             String iframeId = createIframeId(workspaceId, diagramKey);
-            String width = getMaxWidth(parameters);
 
-            return String.format(TEMPLATE, width, iframeId, workspaceId, diagramKey, diagramSelector, iframeId);
+            return String.format(TEMPLATE, iframeId, structurizrUrl, workspaceId, diagramKey, diagramSelector, iframeId, structurizrUrl);
         } catch (NumberFormatException e) {
             throw new MacroExecutionException("The workspace ID must be a number.");
         }

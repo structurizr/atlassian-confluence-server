@@ -58,27 +58,13 @@ public class StructurizrPrivateEmbedMacroTests {
     }
 
     @Test
-    public void test_execute_ThrowsAnException_WhenAnInvalidWidthIsSpecified() {
-        try {
-            Map<String, String> parameters = new HashMap<String, String>();
-            parameters.put("workspaceId", "1234");
-            parameters.put("apiKey", "d4d56ad3-2b23-4fd5-bea0-cf3879368f2e");
-            parameters.put("max-width", "blah");
-            macro.execute(parameters, "", null);
-            fail();
-        } catch (MacroExecutionException mee) {
-            assertEquals("The max width must be a number of pixels (e.g. 1024px) or a percentage (e.g. 100%).", mee.getMessage());
-        }
-    }
-
-    @Test
     public void test_execute_ReturnsHtml_WhenAllParametersAreSpecified() throws Exception {
         Map<String, String> parameters = new HashMap<String, String>();
+        parameters.put("structurizrUrl", "https://structurizr.com");
         parameters.put("workspaceId", "1234");
         parameters.put("apiKey", "d4d56ad3-2b23-4fd5-bea0-cf3879368f2e");
         parameters.put("diagramKey", "Context");
         parameters.put("diagramSelector", "true");
-        parameters.put("max-width", "1024px");
 
         String html = macro.execute(parameters, "", null);
 
@@ -90,9 +76,7 @@ public class StructurizrPrivateEmbedMacroTests {
                 "<input name='iframe' value='structurizrEmbedIframe_1234_Context' />\n" +
                 "</form>\n" +
                 "\n" +
-                "<div style='max-width: 1024px'>\n" +
                 "<iframe id='structurizrEmbedIframe_1234_Context' name='structurizrEmbedIframe_1234_Context' width='100%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
-                "</div>\n" +
                 "\n" +
                 "<script type='text/javascript'>\n" +
                 "    document.getElementById('structurizrEmbedForm_1234_Context').submit();\n" +
@@ -104,6 +88,7 @@ public class StructurizrPrivateEmbedMacroTests {
     @Test
     public void test_execute_ReturnsHtmlWithADefaultDiagramKey_WhenADiagramKeyIsNotSpecified() throws Exception {
         Map<String, String> parameters = new HashMap<String, String>();
+        parameters.put("structurizrUrl", "https://structurizr.com");
         parameters.put("workspaceId", "1234");
         parameters.put("apiKey", "d4d56ad3-2b23-4fd5-bea0-cf3879368f2e");
         parameters.put("diagramSelector", "true");
@@ -118,9 +103,7 @@ public class StructurizrPrivateEmbedMacroTests {
                 "<input name='iframe' value='structurizrEmbedIframe_1234_1' />\n" +
                 "</form>\n" +
                 "\n" +
-                "<div style='max-width: 100%'>\n" +
                 "<iframe id='structurizrEmbedIframe_1234_1' name='structurizrEmbedIframe_1234_1' width='100%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
-                "</div>\n" +
                 "\n" +
                 "<script type='text/javascript'>\n" +
                 "    document.getElementById('structurizrEmbedForm_1234_1').submit();\n" +
@@ -132,6 +115,7 @@ public class StructurizrPrivateEmbedMacroTests {
     @Test
     public void test_execute_ReturnsHtmlWithADefaultDiagramSelector_WhenADiagramSelectorIsNotSpecified() throws Exception {
         Map<String, String> parameters = new HashMap<String, String>();
+        parameters.put("structurizrUrl", "https://structurizr.com");
         parameters.put("workspaceId", "1234");
         parameters.put("apiKey", "d4d56ad3-2b23-4fd5-bea0-cf3879368f2e");
         parameters.put("diagramKey", "Context");
@@ -146,9 +130,7 @@ public class StructurizrPrivateEmbedMacroTests {
                 "<input name='iframe' value='structurizrEmbedIframe_1234_Context' />\n" +
                 "</form>\n" +
                 "\n" +
-                "<div style='max-width: 100%'>\n" +
                 "<iframe id='structurizrEmbedIframe_1234_Context' name='structurizrEmbedIframe_1234_Context' width='100%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
-                "</div>\n" +
                 "\n" +
                 "<script type='text/javascript'>\n" +
                 "    document.getElementById('structurizrEmbedForm_1234_Context').submit();\n" +
