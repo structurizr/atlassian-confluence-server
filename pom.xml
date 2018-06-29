@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.structurizr.confluence</groupId>
     <artifactId>structurizr-confluence</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
     <organization>
         <name>Structurizr Limited</name>
         <url>https://structurizr.com</url>
     </organization>
     <name>structurizr-confluence</name>
-    <description>This is the com.structurizr.confluence:structurizr-confluence plugin for Atlassian Confluence.</description>
+    <description>This is the Structurizr plugin for Atlassian Confluence.</description>
     <packaging>atlassian-plugin</packaging>
     <dependencies>
         <dependency>
