@@ -60,17 +60,4 @@ public abstract class AbstractStructurizrMacro implements Macro {
         return diagramSelector;
     }
 
-    protected String getMaxWidth(Map<String, String> parameters) throws MacroExecutionException {
-        String width = "100%";
-        if (parameters.containsKey("maxWidth")) {
-            width = parameters.get("maxWidth");
-        }
-
-        if (!width.matches("[0-9]*\\%") && !width.matches("[0-9]*px")) {
-            throw new MacroExecutionException("The max width must be a number of pixels (e.g. 1024px) or a percentage (e.g. 100%).");
-        }
-
-        return width;
-    }
-
 }

@@ -6,9 +6,9 @@ import com.atlassian.confluence.macro.MacroExecutionException;
 import java.util.Map;
 
 /**
- * A Confluence macro that embeds a single diagram from a private workspace.
+ * A Confluence macro that embeds a single diagram from a Structurizr workspace.
  */
-public class StructurizrPrivateEmbedMacro extends AbstractStructurizrMacro {
+public class StructurizrWorkspaceEmbedMacro extends AbstractStructurizrMacro {
 
     private static final String TEMPLATE =
             "<form id='%s' target='%s' method='post' action='%s/embed/%d' style='display:none;'>\n" +
@@ -33,12 +33,7 @@ public class StructurizrPrivateEmbedMacro extends AbstractStructurizrMacro {
             String diagramKey = getDiagramKey(parameters);
             String diagramSelector = getDiagramSelector(parameters);
             String iframeId = createIframeId(workspaceId, diagramKey);
-
             String apiKey = parameters.get("apiKey");
-            if (apiKey == null || apiKey.trim().length() == 0) {
-                throw new MacroExecutionException("An API key must be specified.");
-            }
-
             String formId = createFormId(workspaceId, diagramKey);
 
             return String.format(TEMPLATE, formId, iframeId, structurizrUrl, workspaceId, apiKey, diagramKey, diagramSelector, iframeId, iframeId, iframeId, formId, structurizrUrl);

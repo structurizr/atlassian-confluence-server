@@ -9,9 +9,9 @@ import java.util.Map;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-public class StructurizrPrivateEmbedMacroTests {
+public class StructurizrWorkspaceEmbedMacroTests {
 
-    private StructurizrPrivateEmbedMacro macro = new StructurizrPrivateEmbedMacro();
+    private StructurizrWorkspaceEmbedMacro macro = new StructurizrWorkspaceEmbedMacro();
 
     @Test
     public void test_execute_ThrowsAnException_WhenAWorkspaceIdIsNotSpecified() {
@@ -42,18 +42,6 @@ public class StructurizrPrivateEmbedMacroTests {
             fail();
         } catch (MacroExecutionException mee) {
             assertEquals("The workspace ID must be a number.", mee.getMessage());
-        }
-    }
-
-    @Test
-    public void test_execute_ThrowsAnException_WhenAnApiKeyIsNotSpecified() {
-        try {
-            Map<String, String> parameters = new HashMap<String, String>();
-            parameters.put("workspaceId", "1234");
-            macro.execute(parameters, "", null);
-            fail();
-        } catch (MacroExecutionException mee) {
-            assertEquals("An API key must be specified.", mee.getMessage());
         }
     }
 
