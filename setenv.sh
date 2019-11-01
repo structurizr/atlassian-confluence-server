@@ -1,2 +1,3 @@
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home/
-export PATH=$PATH:~/sandbox/atlassian-plugin-sdk-6.3.4/bin/
+export ATLASSIAN_HOME=/Users/simon/sandbox/atlassian-plugin-sdk-8.0.16/
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home/
+export PATH=$ATLASSIAN_HOME/bin/:$PATH

@@ -10,7 +10,7 @@
         <url>https://structurizr.com</url>
     </organization>
     <name>structurizr-confluence</name>
-    <description>This is the Structurizr plugin for Atlassian Confluence.</description>
+    <description>This is the Structurizr plugin for Atlassian Confluence Server.</description>
     <packaging>atlassian-plugin</packaging>
     <dependencies>
         <dependency>
