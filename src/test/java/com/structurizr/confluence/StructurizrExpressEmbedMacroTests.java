@@ -26,18 +26,18 @@ public class StructurizrExpressEmbedMacroTests {
         String html = macro.execute(parameters, "A Structurizr Express definition", null);
 
         assertEquals(
-                "<form id='structurizrEmbedForm_Express_1' target='structurizrEmbedIframe_Express1' method='post' action='https://structurizr.com/embed/express' style='display: none;'>\n" +
-                        "<textarea name='definition'>A Structurizr Express definition</textarea>\n" +
-                        "<input name='iframe' value='structurizrEmbedIframe_Express1' />\n" +
+                "<form id=\"structurizrEmbedForm_Express_1\" target=\"structurizrEmbedIframe_Express1\" method=\"post\" action=\"https://structurizr.com/embed/express\" style=\"display: none;\">\n" +
+                        "<textarea name=\"definition\">A Structurizr Express definition</textarea>\n" +
+                        "<input name=\"iframe\" value=\"structurizrEmbedIframe_Express1\" />\n" +
                         "</form>\n" +
                         "\n" +
-                        "<iframe id='structurizrEmbedIframe_Express1' name='structurizrEmbedIframe_Express1' width='100%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
+                        "<iframe id=\"structurizrEmbedIframe_Express1\" name=\"structurizrEmbedIframe_Express1\" width=\"100%\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\" scrolling=\"no\" allowfullscreen=\"true\"></iframe>\n" +
                         "\n" +
-                        "<script type='text/javascript'>\n" +
-                        "document.getElementById('structurizrEmbedForm_Express_1').submit();\n" +
+                        "<script type=\"text/javascript\">\n" +
+                        "document.getElementById(\"structurizrEmbedForm_Express_1\").submit();\n" +
                         "</script>\n" +
                         "\n" +
-                        "<script type='text/javascript' src='https://structurizr.com/static/js/structurizr-responsive-embed.js'></script>", html);
+                        "<script type=\"text/javascript\" src=\"https://structurizr.com/static/js/structurizr-responsive-embed.js\"></script>", html);
     }
 
 }

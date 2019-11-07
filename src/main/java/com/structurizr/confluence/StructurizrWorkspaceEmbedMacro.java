@@ -11,20 +11,20 @@ import java.util.Map;
 public class StructurizrWorkspaceEmbedMacro extends AbstractStructurizrMacro {
 
     private static final String TEMPLATE =
-            "<form id='%s' target='%s' method='post' action='%s/embed/%d' style='display:none;'>\n" +
-            "<input name='apiKey' value='%s'/>\n" +
-            "<input name='diagram' value='%s' />\n" +
-            "<input name='diagramSelector' value='%s' />\n" +
-            "<input name='iframe' value='%s' />\n" +
+            "<form id=\"%s\" target=\"%s\" method=\"post\" action=\"%s/embed/%d\" style=\"display:none;\">\n" +
+            "<input name=\"apiKey\" value=\"%s\"/>\n" +
+            "<input name=\"diagram\" value=\"%s\" />\n" +
+            "<input name=\"diagramSelector\" value=\"%s\" />\n" +
+            "<input name=\"iframe\" value=\"%s\" />\n" +
             "</form>\n" +
             "\n" +
-            "<iframe id='%s' name='%s' width='100%%' marginwidth='0' marginheight='0' frameborder='0' scrolling='no' allowfullscreen='true'></iframe>\n" +
+            "<iframe id=\"%s\" name=\"%s\" width=\"100%%\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\" scrolling=\"no\" allowfullscreen=\"true\"></iframe>\n" +
             "\n" +
-            "<script type='text/javascript'>\n" +
-            "    document.getElementById('%s').submit();\n" +
+            "<script type=\"text/javascript\">\n" +
+            "    document.getElementById(\"%s\").submit();\n" +
             "</script>\n" +
             "\n" +
-            "<script type='text/javascript' src='%s/static/js/structurizr-responsive-embed.js'></script>";
+            "<script type=\"text/javascript\" src=\"%s/static/js/structurizr-responsive-embed.js\"></script>";
 
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
         try {
