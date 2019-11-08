@@ -2,6 +2,7 @@ package com.structurizr.confluence;
 
 import com.atlassian.confluence.content.render.xhtml.ConversionContext;
 import com.atlassian.confluence.macro.MacroExecutionException;
+import com.atlassian.confluence.util.HtmlUtil;
 
 import java.util.Map;
 
@@ -36,6 +37,8 @@ public class StructurizrWorkspaceEmbedMacro extends AbstractStructurizrMacro {
             String apiKey = parameters.get("apiKey");
             String formId = createFormId(workspaceId, diagramKey);
 
+            diagramKey = HtmlUtil.htmlEncode(diagramKey);
+
             return String.format(TEMPLATE, formId, iframeId, structurizrUrl, workspaceId, apiKey, diagramKey, diagramSelector, iframeId, iframeId, iframeId, formId, structurizrUrl);
         } catch (NumberFormatException e) {
             throw new MacroExecutionException("The workspace ID must be a number.");
@@ -43,7 +46,7 @@ public class StructurizrWorkspaceEmbedMacro extends AbstractStructurizrMacro {
     }
 
     protected String createFormId(long workspaceId, String diagramKey) {
-        return String.format("structurizrEmbedForm_%d_%s", workspaceId, diagramKey);
+        return String.format("structurizrEmbedForm_%d_%s", workspaceId, sanitizeElementIdPart(diagramKey));
     }
 
 }

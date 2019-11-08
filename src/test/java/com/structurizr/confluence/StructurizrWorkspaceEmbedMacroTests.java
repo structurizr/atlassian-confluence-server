@@ -51,23 +51,23 @@ public class StructurizrWorkspaceEmbedMacroTests {
         parameters.put("structurizrUrl", "https://structurizr.com");
         parameters.put("workspaceId", "1234");
         parameters.put("apiKey", "d4d56ad3-2b23-4fd5-bea0-cf3879368f2e");
-        parameters.put("diagramKey", "Context");
+        parameters.put("diagramKey", "Diagram 'Key with special & characters");
         parameters.put("diagramSelector", "true");
 
         String html = macro.execute(parameters, "", null);
 
         assertEquals(
-                "<form id=\"structurizrEmbedForm_1234_Context\" target=\"structurizrEmbedIframe_1234_Context\" method=\"post\" action=\"https://structurizr.com/embed/1234\" style=\"display:none;\">\n" +
+                "<form id=\"structurizrEmbedForm_1234_Diagram__Key_with_special___characters\" target=\"structurizrEmbedIframe_1234_Diagram__Key_with_special___characters\" method=\"post\" action=\"https://structurizr.com/embed/1234\" style=\"display:none;\">\n" +
                 "<input name=\"apiKey\" value=\"d4d56ad3-2b23-4fd5-bea0-cf3879368f2e\"/>\n" +
-                "<input name=\"diagram\" value=\"Context\" />\n" +
+                "<input name=\"diagram\" value=\"Diagram &#39;Key with special &amp; characters\" />\n" +
                 "<input name=\"diagramSelector\" value=\"true\" />\n" +
-                "<input name=\"iframe\" value=\"structurizrEmbedIframe_1234_Context\" />\n" +
+                "<input name=\"iframe\" value=\"structurizrEmbedIframe_1234_Diagram__Key_with_special___characters\" />\n" +
                 "</form>\n" +
                 "\n" +
-                "<iframe id=\"structurizrEmbedIframe_1234_Context\" name=\"structurizrEmbedIframe_1234_Context\" width=\"100%\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\" scrolling=\"no\" allowfullscreen=\"true\"></iframe>\n" +
+                "<iframe id=\"structurizrEmbedIframe_1234_Diagram__Key_with_special___characters\" name=\"structurizrEmbedIframe_1234_Diagram__Key_with_special___characters\" width=\"100%\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\" scrolling=\"no\" allowfullscreen=\"true\"></iframe>\n" +
                 "\n" +
                 "<script type=\"text/javascript\">\n" +
-                "    document.getElementById(\"structurizrEmbedForm_1234_Context\").submit();\n" +
+                "    document.getElementById(\"structurizrEmbedForm_1234_Diagram__Key_with_special___characters\").submit();\n" +
                 "</script>\n" +
                 "\n" +
                 "<script type=\"text/javascript\" src=\"https://structurizr.com/static/js/structurizr-responsive-embed.js\"></script>", html);

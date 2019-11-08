@@ -4,11 +4,21 @@ import com.atlassian.confluence.macro.Macro;
 import com.atlassian.confluence.macro.MacroExecutionException;
 
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public abstract class AbstractStructurizrMacro implements Macro {
 
+    private final static Pattern INVALID_HTML_ID_CHARS = Pattern.compile("[^\\dA-Za-z-_:.]");
+
     protected String createIframeId(long workspaceId, String diagramKey) {
-        return String.format("structurizrEmbedIframe_%d_%s", workspaceId, diagramKey);
+        return String.format("structurizrEmbedIframe_%d_%s", workspaceId, sanitizeElementIdPart(diagramKey));
+    }
+
+    /**
+     * Cleans up form/iframe IDs to conform with https://www.w3.org/TR/html4/types.html#type-id
+     */
+    protected String sanitizeElementIdPart(String diagramKey) {
+        return INVALID_HTML_ID_CHARS.matcher(diagramKey).replaceAll("_");
     }
 
     public Macro.BodyType getBodyType() {
@@ -19,7 +29,7 @@ public abstract class AbstractStructurizrMacro implements Macro {
         return OutputType.BLOCK;
     }
 
-    protected long getWorkspaceId(Map<String,String> parameters) throws MacroExecutionException {
+    protected long getWorkspaceId(Map<String, String> parameters) throws MacroExecutionException {
         String workspaceId = parameters.get("workspaceId");
 
         if (workspaceId == null || workspaceId.trim().length() == 0) {
@@ -36,7 +46,7 @@ public abstract class AbstractStructurizrMacro implements Macro {
         }
 
         if (structurizrUrl.endsWith("/")) {
-            structurizrUrl = structurizrUrl.substring(0, structurizrUrl.length()-1);
+            structurizrUrl = structurizrUrl.substring(0, structurizrUrl.length() - 1);
         }
 
         return structurizrUrl;
