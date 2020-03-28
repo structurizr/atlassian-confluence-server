@@ -4,7 +4,7 @@ This repository contains the source code for some macros that embed public, priv
 
 ## Binaries
 
- - [structurizr-confluence-2.0.0.jar](dist/structurizr-confluence-2.0.0.jar)
+ - [structurizr-confluence-2.1.0.jar](dist/structurizr-confluence-2.1.0.jar)
  
  ## Building from source
  
