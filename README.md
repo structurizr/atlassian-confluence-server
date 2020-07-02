@@ -1,10 +1,10 @@
 # Structurizr macros for Atlassian Confluence Server
 
-This repository contains the source code for some macros that embed public, private and Express diagrams from Structurizr into Atlassian Confluence Server. See [Atlassian Confluence](https://structurizr.com/help/atlassian-confluence) on the Structurizr website for more details.
+This repository contains the source code for some macros that embed diagrams from a Structurizr workspace into Atlassian Confluence Server. See [Atlassian Confluence](https://structurizr.com/help/atlassian-confluence) on the Structurizr website for more details.
 
-## Binaries
+## Prebuilt releases
 
- - [structurizr-confluence-2.1.0.jar](dist/structurizr-confluence-2.1.0.jar)
+ - [v2.1.0](https://github.com/structurizr/atlassian-confluence-server/releases/tag/v2.1.0)
  
  ## Building from source
  
