@@ -45,7 +45,7 @@ public class StructurizrWorkspaceEmbedMacro extends AbstractStructurizrMacro {
         }
     }
 
-    protected String createFormId(long workspaceId, String diagramKey) {
+    private String createFormId(long workspaceId, String diagramKey) {
         return String.format("structurizrEmbedForm_%d_%s", workspaceId, sanitizeElementIdPart(diagramKey));
     }
 

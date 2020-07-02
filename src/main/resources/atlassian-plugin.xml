@@ -38,20 +38,6 @@
         </parameters>
     </xhtml-macro>
 
-    <xhtml-macro name="structurizr-express"
-                 class="com.structurizr.confluence.StructurizrExpressEmbedMacro"
-                 documentation-url="https://www.structurizr.com/help/atlassian-confluence"
-                 icon="/download/resources/${project.groupId}.${project.artifactId}/images/structurizr-logo.png"
-                 key="structurizr-express">
-        <category name="external-content" />
-        <parameters>
-            <parameter name="structurizrUrl" type="string" required="true" default="https://structurizr.com">
-                <option key="showNameInPlaceholder" value="true" />
-                <option key="showValueInPlaceholder" value="true" />
-            </parameter>
-        </parameters>
-    </xhtml-macro>
-
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="structurizr-confluence"/>
 
