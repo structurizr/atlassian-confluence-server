@@ -1,10 +1,9 @@
-# Structurizr macros for Atlassian Confluence Server
+# Structurizr macro for Atlassian Confluence Server
 
 This repository contains the source code for a macro that embeds diagrams from a Structurizr workspace into Confluence on Atlassian Confluence Server.
 
 With Atlassian discontinuing Confluence Server, this repo (and the macro) is now unsupported, and will receive no updates.
-Please also note that there is no version of this macro for installation on Confluence Data Center,
-predominantly due to the non-trivial certification process that plugins need to go through.
+This macro is not compatible with Confluence Data Center.
 
 ## Usage
 
