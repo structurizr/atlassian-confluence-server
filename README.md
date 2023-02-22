@@ -8,7 +8,6 @@ predominantly due to the non-trivial certification process that plugins need to 
 
 ## Usage
 
-The macros can be installed via the <a href="https://marketplace.atlassian.com/vendors/1213399">Atlassian Marketplace</a>, and are available for both Confluence Cloud and Server.
 When editing a page, type <code>{structurizr</code> or <code>/structurizr</code> (depending on the Confluence version) to insert the macro into your page.
 You will need the following information:
 
