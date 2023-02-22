@@ -70,7 +70,7 @@ public class StructurizrWorkspaceEmbedMacroTests {
                 "    document.getElementById(\"structurizrEmbedForm_1234_Diagram__Key_with_special___characters\").submit();\n" +
                 "</script>\n" +
                 "\n" +
-                "<script type=\"text/javascript\" src=\"https://structurizr.com/static/js/structurizr-responsive-embed.js\"></script>", html);
+                "<script type=\"text/javascript\" src=\"https://structurizr.com/static/js/structurizr-embed.js\"></script>", html);
     }
 
     @Test
@@ -97,7 +97,7 @@ public class StructurizrWorkspaceEmbedMacroTests {
                 "    document.getElementById(\"structurizrEmbedForm_1234_1\").submit();\n" +
                 "</script>\n" +
                 "\n" +
-                "<script type=\"text/javascript\" src=\"https://structurizr.com/static/js/structurizr-responsive-embed.js\"></script>", html);
+                "<script type=\"text/javascript\" src=\"https://structurizr.com/static/js/structurizr-embed.js\"></script>", html);
     }
 
     @Test
@@ -124,7 +124,7 @@ public class StructurizrWorkspaceEmbedMacroTests {
                 "    document.getElementById(\"structurizrEmbedForm_1234_Context\").submit();\n" +
                 "</script>\n" +
                 "\n" +
-                "<script type=\"text/javascript\" src=\"https://structurizr.com/static/js/structurizr-responsive-embed.js\"></script>", html);
+                "<script type=\"text/javascript\" src=\"https://structurizr.com/static/js/structurizr-embed.js\"></script>", html);
     }
 
 }

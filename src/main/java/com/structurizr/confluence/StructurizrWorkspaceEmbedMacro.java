@@ -25,7 +25,7 @@ public class StructurizrWorkspaceEmbedMacro extends AbstractStructurizrMacro {
             "    document.getElementById(\"%s\").submit();\n" +
             "</script>\n" +
             "\n" +
-            "<script type=\"text/javascript\" src=\"%s/static/js/structurizr-responsive-embed.js\"></script>";
+            "<script type=\"text/javascript\" src=\"%s/static/js/structurizr-embed.js\"></script>";
 
     public String execute(Map<String, String> parameters, String bodyContent, ConversionContext conversionContext) throws MacroExecutionException {
         try {
